@@ -36,9 +36,10 @@ def display_unique():
 	if record == -1:
 		print('Something is wrong with the SQL command')
 	else:
+		col_names = [desc[0] for desc in cursor.description]
 		log = record[:5]
 	util.disconnect_from_db(connection, cursor)
-	return render_template('index.html', log_html = log)
+	eturn render_template('index.html', log_html = log, table_title = col_names)
 
 if __name__ == '__main__':
 	# set debug mode
