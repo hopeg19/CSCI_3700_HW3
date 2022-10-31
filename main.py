@@ -9,9 +9,10 @@ host='127.0.0.1'
 port='5432'
 database='dvdrental'
 
-@app.route('/')
+@app.route('/api/update_basket_a')
+@app.route('/api/unique')
 
-def index():
+def update_basket_a():
     
     cursor, connection = util.connect_to_db(username,password,host,port,database)
     # execute SQL commands
@@ -28,7 +29,7 @@ def index():
     # the file named index.html under templates folder
     return render_template('index.html', log_html = log)
 
-def index():
+def display_unique():
 	cursor, connection = util.connect_to_db(username,password,host,port,database)
 	record = util.run_and_fetch_sql(cursor, "  ")
 	if record == -1:
