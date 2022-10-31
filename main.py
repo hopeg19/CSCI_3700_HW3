@@ -15,8 +15,7 @@ def update_basket_a():
     
     cursor, connection = util.connect_to_db(username,password,host,port,database)
     # execute SQL commands
-    record = util.run_and_fetch_sql(cursor, "INSERT into basket_a (a, fruit_a)
-values (5, 'Cherry')")
+    record = util.run_and_fetch_sql(cursor, "INSERT into basket_a (a, fruit_a) values (5, 'Cherry')")
     if record == -1:
         # you can replace this part with a 404 page
         print('Something is wrong with the SQL command')
@@ -33,7 +32,7 @@ values (5, 'Cherry')")
 
 def display_unique():
 	cursor, connection = util.connect_to_db(username,password,host,port,database)
-	record = util.run_and_fetch_sql(cursor, "  ")
+	record = util.run_and_fetch_sql(cursor, "Select a, fruit_a, b, fruit_b From basket_a FULL JOIN basket_b ON fruit_a = fruit_b Where a IS NULL OR b IS NULL")
 	if record == -1:
 		print('Something is wrong with the SQL command')
 	else:
