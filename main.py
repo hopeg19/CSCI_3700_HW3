@@ -19,7 +19,7 @@ def update_basket_a():
         print('Something is wrong with the SQL command')
     else:
         # only use the first five rows
-        log = record[:5]
+        log = 'Success'
     # disconnect from database
     util.disconnect_from_db(connection,cursor)
     # using render_template function, Flask will search
