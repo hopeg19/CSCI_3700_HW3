@@ -10,7 +10,6 @@ port='5432'
 database='dvdrental'
 
 @app.route('/api/update_basket_a')
-@app.route('/api/unique')
 
 def update_basket_a():
     
@@ -28,6 +27,8 @@ def update_basket_a():
     # using render_template function, Flask will search
     # the file named index.html under templates folder
     return render_template('index.html', log_html = log)
+
+@app.route('/api/unique')
 
 def display_unique():
 	cursor, connection = util.connect_to_db(username,password,host,port,database)
