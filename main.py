@@ -39,7 +39,7 @@ def display_unique():
 		col_names = [desc[0] for desc in cursor.description]
 		log = record[:5]
 	util.disconnect_from_db(connection, cursor)
-	eturn render_template('index.html', log_html = log, table_title = col_names)
+	return render_template('index.html', log_html = log, table_title = col_names)
 
 if __name__ == '__main__':
 	# set debug mode
