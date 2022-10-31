@@ -15,7 +15,7 @@ def index():
     
     cursor, connection = util.connect_to_db(username,password,host,port,database)
     # execute SQL commands
-    record = util.run_and_fetch_sql(cursor, "SELECT * from customer;")
+    record = util.run_and_fetch_sql(cursor, "  ")
     if record == -1:
         # you can replace this part with a 404 page
         print('Something is wrong with the SQL command')
@@ -28,6 +28,15 @@ def index():
     # the file named index.html under templates folder
     return render_template('index.html', log_html = log)
 
+def index():
+	cursor, connection = util.connect_to_db(username,password,host,port,database)
+	record = util.run_and_fetch_sql(cursor, "  ")
+	if record == -1:
+		print('Something is wrong with the SQL command')
+	else:
+		log = record[:5]
+	util.disconnect_from_db(connection, cursor)
+	return render_template('index.html', log_html = log)
 
 if __name__ == '__main__':
 	# set debug mode
