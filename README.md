@@ -1,7 +1,7 @@
 # CSCI_3700_HW3
 #Members
-#Garrett Hope
-#Miguel Evans
+Garrett Hope
+Miguel Evans
 ## Quick Start
 ### Local Test Setup
 First, we need to install a Python 3 virtual environment with:
