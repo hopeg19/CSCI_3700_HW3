@@ -15,7 +15,7 @@ def update_basket_a():
     
     cursor, connection = util.connect_to_db(username,password,host,port,database)
     # execute SQL commands
-    record = util.run_and_commit_sql(cursor, "INSERT into basket_a (a, fruit_a) values (5, 'Cherry')")
+    record = util.run_and_commit_sql(cursor, connection, "INSERT into basket_a (a, fruit_a) values (5, 'Cherry')")
     if record == -1:
         # you can replace this part with a 404 page
         print('404 page was not found')
@@ -36,7 +36,7 @@ def display_unique():
 		print('404 page was not found')
 	else:
 		col_names = [desc[0] for desc in cursor.description]
-		log = record[:10]
+		log = record[]
 	util.disconnect_from_db(connection, cursor)
 	return render_template('unique.html', log_html = log, table_title = col_names)
 
