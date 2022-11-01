@@ -25,7 +25,7 @@ def update_basket_a():
     util.disconnect_from_db(connection,cursor)
     # using render_template function, Flask will search
     # the file named index.html under templates folder
-    return render_template('index.html', log_html = log)
+    return render_template('update_basket_a.html', log_html = log)
 
 @app.route('/api/unique')
 def display_unique():
@@ -37,7 +37,7 @@ def display_unique():
 		col_names = [desc[0] for desc in cursor.description]
 		log = record[:10]
 	util.disconnect_from_db(connection, cursor)
-	return render_template('index.html', log_html = log, table_title = col_names)
+	return render_template('unique.html', log_html = log, table_title = col_names)
 
 if __name__ == '__main__':
 	# set debug mode
