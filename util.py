@@ -30,16 +30,30 @@ def disconnect_from_db(connection,cursor):
     	print("Connection does not work.")
 
 
-
-# run_sql(cursor,"select from;")
 def run_and_fetch_sql(cursor, sql_string=""):
 	try:
-	   
+	    # Executing a SQL query
+	    # cursor.execute("SELECT version();")
+	    # cursor.execute("SELECT * from customer;")
 	    cursor.execute(sql_string)
-	    
+	    # Fetch result
+	    # record = cursor.fetchone()
+	    # print("You are connected to - ", record, "\n")
 	    record = cursor.fetchall()
-	    
+	    # print("Here are the first 5 rows", record[:5])
 	    return record
+	except (Exception, Error) as error:
+		print("Errors while executes the code: ", error)
+		return -1
+
+def run_and_commit_sql(cursor, connection, sql_string=""):
+	try:
+	    # Executing a SQL query
+	    cursor.execute(sql_string)
+	    # if some changes are made, you need to commit your changes
+	    connection.commit()
+	    # use 1 to represent success
+	    return 1
 	except (Exception, Error) as error:
 		print("Errors while executes the code: ", error)
 		return -1
