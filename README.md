@@ -1,6 +1,6 @@
 # CSCI_3700_HW3
-#Members
-Garrett Hope
+#Members,
+Garrett Hope,
 Miguel Evans
 ## Quick Start
 ### Local Test Setup
