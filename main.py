@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 username='raywu1990'
 password='test'
-host='127.0.0.1'
+host='127.0.0.1:5000'
 port='5432'
 database='dvdrental'
 
@@ -43,6 +43,6 @@ if __name__ == '__main__':
 	# set debug mode
     app.debug = True
     # your local machine ip
-    ip = '127.0.0.1'
+    ip = '127.0.0.1:5000'
     app.run(host=ip)
 
