@@ -9,6 +9,7 @@ host='127.0.0.1'
 port='5432'
 database='dvdrental'
 
+@app.route('/api/update_basket_a')
 def update_basket_a():
     
     cursor, connection = util.connect_to_db(username,password,host,port,database)
@@ -27,7 +28,6 @@ def update_basket_a():
     return render_template('index.html', log_html = log)
 
 @app.route('/api/unique')
-
 def display_unique():
 	cursor, connection = util.connect_to_db(username,password,host,port,database)
 	record = util.run_and_fetch_sql(cursor, "Select a, fruit_a, b, fruit_b From basket_a FULL JOIN basket_b ON fruit_a = fruit_b Where a IS NULL OR b IS NULL")
