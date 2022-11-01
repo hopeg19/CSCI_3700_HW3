@@ -18,7 +18,7 @@ def update_basket_a():
     record = util.run_and_commit_sql(cursor, connection, "INSERT into basket_a (a, fruit_a) values (5, 'Cherry')")
     if record == -1:
         # you can replace this part with a 404 page
-        print('404 page was not found')
+        log ='404 page was not found'
     else:
         # only use the first five rows
         log = 'Success'
@@ -28,7 +28,7 @@ def update_basket_a():
     # the file named index.html under templates folder
     return render_template('update_basket_a.html', log_html = log)
 
-@app.route('/api/unique')
+@app.route('/api/display_unique')
 def display_unique():
 	cursor, connection = util.connect_to_db(username,password,host,port,database)
 	record = util.run_and_fetch_sql(cursor, "Select a, fruit_a, b, fruit_b From basket_a FULL JOIN basket_b ON fruit_a = fruit_b Where a IS NULL OR b IS NULL")
@@ -36,9 +36,9 @@ def display_unique():
 		print('404 page was not found')
 	else:
 		col_names = [desc[0] for desc in cursor.description]
-		log = record[]
+		log = record
 	util.disconnect_from_db(connection, cursor)
-	return render_template('unique.html', log_html = log, table_title = col_names)
+	return render_template('display_unique.html', sql_table = log, table_title = col_names)
 
 if __name__ == '__main__':
 	# set debug mode
